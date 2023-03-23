@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class DefaultController extends Controller
 {
-    //
+    public function loginPage(){
+        return view('frontend.default.login');
+    }
+    public function registerPage(){
+        return view('frontend.default.register');
+    }
+    public function indexPage(){
+        return view('frontend.default.index');
+    }
 }

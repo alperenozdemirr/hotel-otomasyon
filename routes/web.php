@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/',[\App\Http\Controllers\Frontend\DefaultController::class,'indexPage'])->name('index');
+Route::get('user/login',[\App\Http\Controllers\Frontend\DefaultController::class,'loginPage'])->name('loginPage');
+Route::get('user/register',[\App\Http\Controllers\Frontend\DefaultController::class,'registerPage'])->name('registerPage');
