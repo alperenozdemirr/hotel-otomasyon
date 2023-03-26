@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="{{asset('frontend')}}/http-services/base.js"></script>
+    <script src="{{asset('frontend')}}/http-services/token.js"></script>
     <script src="{{asset('public_directory')}}/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">

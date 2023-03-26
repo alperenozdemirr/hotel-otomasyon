@@ -17,14 +17,18 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/vendors/nice-select/css/nice-select.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/vendors/owl-carousel/owl.carousel.min.css">
 
+    <script src="{{asset('public_directory')}}/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+    <script src="{{asset('frontend')}}/http-services/base.js"></script>
+    @yield('top-js')
     @yield('css')
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/responsive.css">
 </head>
-<body ng-app="httpServices" >
+<body >
 <!--================Header Area =================-->
-<header ng-controller="user" class="header_area">
+<header  class="header_area">
     <div  class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- Brand and toggle get grouped for better mobile display -->
