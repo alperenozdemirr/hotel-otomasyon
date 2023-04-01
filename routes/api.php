@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function(){
     //return $request->user();
     Route::get('test/token',[\App\Http\Controllers\Api\Frontend\IndexController::class,'testToken']);
+    Route::post('user/logout',[\App\Http\Controllers\Api\Frontend\AuthController::class,'logout']);
 });
 Route::post('user/register',[\App\Http\Controllers\Api\Frontend\AuthController::class,'register']);
 Route::post('user/login',[\App\Http\Controllers\Api\Frontend\AuthController::class,'authenticate']);

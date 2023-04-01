@@ -34,6 +34,23 @@ class AuthController extends Controller
         }
         return response()->json(['message'=>'Invalid credentails'],401);
     }
+    public function logout(Request $request){
+
+
+            $request->user()->tokens()->delete();
+            return response()->json(['message'=>'success logout'],200);
+
+        //return response()->json(['message'=>'error logout'],401);
+        //return redirect('/login');
+        /*$user = Auth::guard('sanctum')->user();
+        if ($user){
+            Auth::logout();
+            $user->tokens()->delete();
+            return response()->json(['message'=>'success logout'],200);
+        }
+
+        return response()->json(['message'=>'error logout'],401);*/
+    }
     public function test(){
         return response()->json(['message'=>'test succes'],200);
     }

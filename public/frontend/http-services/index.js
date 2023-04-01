@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -38,7 +38,21 @@ $(document).ready(function () {
             }
         });
     }
-    testToken();
-    banners();
-    roomList();
-});
+    $('#btn-logout').click(function (){
+        $.ajax({
+            url: baseApiUrl+"/user/logout",
+            method: "POST",
+            headers: addTokenHeader(),
+            success: function (){
+                console.log('succes logout');
+                localStorage.removeItem('currentUser');
+                location.reload();
+            },error:function (err){
+                console.log(err);
+            }
+        });
+    });
+    //testToken();
+   // banners();
+   // roomList();
+});*/

@@ -19,17 +19,20 @@
 
     <script src="{{asset('public_directory')}}/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
+    <script src="{{asset('public_directory')}}/angular.min.js"></script>
     <script src="{{asset('frontend')}}/http-services/base.js"></script>
+    <script src="{{asset('frontend')}}/http-services/AuthenticateController.js"></script>
     @yield('top-js')
+
     @yield('css')
     <!-- main css -->
     <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/responsive.css">
 </head>
-<body >
+<body ng-app="httpServices">
 <!--================Header Area =================-->
 <header  class="header_area">
-    <div  class="container">
+    <div ng-controller="AuthenticateController" class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href=""><img src="{{asset('frontend')}}/image/Logo.png" alt=""></a>
@@ -48,17 +51,15 @@
                             <li class="nav-item"><a class="nav-link" href="">Tüm odalar</a></li>
                         </ul>
                     </li>
-                    <li ng-if="me !== undefined" class="nav-item submenu dropdown">
+                    <li ng-if="myUser !== null" class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hesabım</a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" disabled>%me.name%</a></li>
+                            <li class="nav-item"><a class="nav-link"  disabled> @{{ myUser.name }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="blog-single.html">Hesab bilgilerim</a></li>
+                            <li  class="nav-item"><a id="btn-logout" ng-click="logout()" href="#logout"  class="nav-link">Çıkış Yap</a></li>
                         </ul>
                     </li>
-
-
-                    <li ng-if="me == undefined" class="nav-item"><a class="nav-link" href="">Giriş Yap | Üye Ol</a></li>
-
+                    <li ng-if="myUser == null"  class="nav-item"><a class="nav-link" href="{{route('loginPage')}}">Giriş Yap | Üye Ol</a></li>
                 </ul>
             </div>
         </nav>
