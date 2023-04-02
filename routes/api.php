@@ -23,3 +23,6 @@ Route::post('user/register',[\App\Http\Controllers\Api\Frontend\AuthController::
 Route::post('user/login',[\App\Http\Controllers\Api\Frontend\AuthController::class,'authenticate']);
 Route::get('test',[\App\Http\Controllers\Api\Frontend\AuthController::class,'test']);
 Route::get('/index',[App\Http\Controllers\Api\Frontend\IndexController::class,'index']);
+Route::get('rooms',[\App\Http\Controllers\Api\Frontend\RoomController::class,'rooms']);
+Route::get('rooms/{id}',[App\Http\Controllers\Api\Frontend\RoomController::class,'details']);
+

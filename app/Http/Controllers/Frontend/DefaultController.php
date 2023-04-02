@@ -17,4 +17,10 @@ class DefaultController extends Controller
     public function indexPage(){
         return view('frontend.default.index');
     }
+    public function roomDetails($id){
+        return view('frontend.room-details',['id'=>$id]);
+    }
+    public function roomAll(){
+        return view('frontend.rooms-all');
+    }
 }

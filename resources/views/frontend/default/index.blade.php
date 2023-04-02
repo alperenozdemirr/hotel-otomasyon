@@ -10,13 +10,11 @@
             <div class="banner_content text-center">
                 <h6>MONOTON HAYATTAN UZAK</h6>
                 <h2>Zihnini rahatlat</h2>
-
                 <a ng-if="myUser == null" href="#" class="btn theme_btn button_hover">Hemen Üye Ol</a>
                 <a ng-if="myUser != null" href="#banners" class="btn theme_btn button_hover">Odaları İncele</a>
             </div>
         </div>
     </div>
-
 </section>
 <!--================Banner Area =================-->
 
@@ -32,14 +30,13 @@
             <div ng-repeat="banner in banners" class="col-lg-3 col-sm-6">
                 <div class="accomodation_item text-center">
                     <div class="hotel_img">
-                        <img src="{{url('/')}}/frontend/image/@{{banner.image}}" alt="">
-                        <a href="#" class="btn theme_btn button_hover">Odayı İncele</a>
+                        <img src="{{url('/')}}/frontend/image/@{{banner.image}}" alt="banner photo">
+                        <a href="{{url('/')}}/rooms/detail/@{{banner.id}}" class="btn theme_btn button_hover">Odayı İncele</a>
                     </div>
                     <a href="#"><h4 class="sec_h4">@{{ banner.name }}</h4></a>
                     <h5>@{{banner.price}}TL<small>/gecelik</small></h5>
                 </div>
             </div>
-
         </div>
 
     </div>
