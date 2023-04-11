@@ -26,10 +26,14 @@
 
     @yield('css')
     <!-- main css -->
+    <link rel="stylesheet" href="{{asset('public_directory')}}/css/loader.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/style.css">
     <link rel="stylesheet" href="{{asset('frontend')}}/css/responsive.css">
 </head>
 <body ng-app="httpServices">
+<div id="loader">
+    <div id="loaderContent"><img src="{{asset('public_directory')}}/image/loader.gif"> </div>
+</div>
 <!--================Header Area =================-->
 <header  class="header_area">
     <div ng-controller="AuthenticateController" class="container">
@@ -44,7 +48,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="">Anasayfa</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{{route('index')}}">Anasayfa</a></li>
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Odalar</a>
                         <ul class="dropdown-menu">
@@ -55,7 +59,8 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hesabım</a>
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link"  disabled> @{{ myUser.name }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-single.html">Hesab bilgilerim</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#account">Hesab bilgilerim</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('myRented')}}">Geçmiş Kiralamalarım</a></li>
                             <li  class="nav-item"><a id="btn-logout" ng-click="logout()" href="#logout"  class="nav-link">Çıkış Yap</a></li>
                         </ul>
                     </li>
@@ -154,7 +159,7 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 @yield('js')
-
+<script> loaderHide(); </script>
 <script src="{{asset('frontend')}}/js/jquery-3.2.1.min.js"></script>
 <script src="{{asset('frontend')}}/js/popper.js"></script>
 <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>

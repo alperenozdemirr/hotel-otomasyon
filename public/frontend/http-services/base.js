@@ -1,6 +1,13 @@
 const baseApiUrl="http://localhost/HotelOtomasyon/public/api";
 const baseHomeUrl="http://localhost/HotelOtomasyon/public";
 
+var loaderShow = function () {
+    $("#loader").show();
+}
+var loaderHide = function (){
+    $("#loader").hide();
+}
+loaderShow();
 var httpServices=angular.module('httpServices', []);
 var authenticate=false;
 httpServices.service('authService', function() {

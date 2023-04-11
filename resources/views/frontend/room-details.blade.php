@@ -25,7 +25,15 @@
                 <div class="about_content ">
                     <h2 class="title title_color">@{{room.name}}</h2>
                     <p>@{{room.info}}</p>
-                    <a href="#" class="button_hover theme_btn_two">Odayı kirala</a>
+                    <div class="form-group float-left">
+                        <label>Başlangıç Tarihi</label>
+                        <input id="startDate" class="form-control" type="date">
+                    </div>
+                    <div class="form-group float-left">
+                        <label>Bitiş Tarihi</label>
+                        <input id="endDate" class="form-control" type="date">
+                    </div>
+                    <a href="#" class="button_hover theme_btn_two col-md-12">Odayı kirala</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -38,6 +46,14 @@
 @endsection
 @section('css') @endsection
 @section('top-js')
+    <script>
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2,'0');
+        const month = String(today.getMonth() + 1).padStart(2,'0');
+        const year = today.getFullYear();
+        const todayFormatted = `${day}-${month}-${year}`;
+        document.getElementById('startDate').value = todayFormatted;
+    </script>
     <script>var roomId={{$id}}</script>
     <script src="{{asset('frontend')}}/http-services/roomController.js"></script>
 @endsection

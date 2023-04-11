@@ -18,7 +18,10 @@ Route::middleware('auth:sanctum')->group(function(){
     //return $request->user();
     Route::get('test/token',[\App\Http\Controllers\Api\Frontend\IndexController::class,'testToken']);
     Route::post('user/logout',[\App\Http\Controllers\Api\Frontend\AuthController::class,'logout']);
+    Route::post('rented/add',[\App\Http\Controllers\Api\Frontend\RentedController::class,'add']);
+    Route::get('my/rented/{id}',[\App\Http\Controllers\Api\Frontend\RentedController::class,'show']);
 });
+
 Route::post('user/register',[\App\Http\Controllers\Api\Frontend\AuthController::class,'register']);
 Route::post('user/login',[\App\Http\Controllers\Api\Frontend\AuthController::class,'authenticate']);
 Route::get('test',[\App\Http\Controllers\Api\Frontend\AuthController::class,'test']);
